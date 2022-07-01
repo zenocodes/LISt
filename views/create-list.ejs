@@ -2,7 +2,18 @@
 
     <%- include('partials/nav') %>
 
-    <h1>Create a list</h1>
+    <main class="container" id="create-list">
+        <h1 class="title">Create a new list</h1>
+
+        <form action="/create" method="POST">
+            <label for="">Title</label>
+            <input type="text" name="title" id="" class="form-input">
+            <label for="">Body</label>
+            <textarea name="body" id=""  class="form-input" cols="30" rows="10"></textarea>
+            <input type="submit" value="Save List">
+        </form>
+
+    </main>
 
 
 <%- include('partials/footer') %>
