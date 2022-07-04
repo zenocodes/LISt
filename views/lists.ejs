@@ -2,7 +2,27 @@
 
     <%- include('partials/nav') %>
 
-    <h1>View all lists</h1>
+    <main class="container" id="lists">
+
+        <% lists.forEach(list => { %>
+
+            <div class="list">
+                <h2 class="list-title"><%= list.title %></h2>
+                <div class="list-body">
+                    <ul>
+
+                        <% list.body.split('\n').forEach(item => { %>
+                            <li><%= item %></li>
+                        <% }) %>
+
+                    </ul>
+                </div>
+                <p>Created on <%= list.date_created.toString().split(' GMT')[0] %></p>
+            </div>
+
+        <% }) %>
+
+    </main>
 
 
 <%- include('partials/footer') %>
