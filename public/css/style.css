@@ -130,3 +130,39 @@ header .nav-link:hover {
 
 
 /* ./create-list view */
+
+/* lists view */
+
+#lists {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#lists .list {
+    border: 1px solid #b7b5b5;
+    border-radius: 5px;
+    padding: 10px;
+    width: 27%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    /* height: fit-content; */
+}
+
+#lists .list-title {
+    color: #323131;
+}
+
+#lists .list-body li {
+    margin-left: 20px;
+}
+
+#lists .list > p {
+    text-align: right;
+    font-style: italic;
+    color: #636161;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* ./lists view */
