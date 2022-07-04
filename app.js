@@ -22,7 +22,13 @@ app.get('/', (req, res) => {
 
 // VIEW ALL LISTS
 app.get('/lists', (req, res) => {
-    res.render('lists')
+    let sql = 'SELECT * FROM list ORDER BY date_created DESC'
+    connection.query(
+        sql, (error, results) => {
+            res.render('lists', {lists: results})
+        }
+    )
+    
 })
 
 // VIEW A LIST
