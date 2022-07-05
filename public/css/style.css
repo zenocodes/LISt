@@ -96,28 +96,27 @@ header .nav-link:hover {
 
 /* create-list view */
 
-#create-list h1 {
+#create-list h1, #edit-list h1 {
     color: #1477B2;
     margin: 8px 0;
 }
 
-#create-list form {
+#create-list form, #edit-list form {
     display: flex;
     flex-direction: column;
 }
 
-#create-list label, #create-list .form-input {
+#create-list label, #create-list .form-input, #edit-list label, #edit-list .form-input {
     font-size: 17px;
     margin-bottom: 5px;
 }
 
-#create-list .form-input {
+#create-list .form-input, #edit-list .form-input {
     padding: 9px;
     border-radius: 5px;
-    /* border: 1px solid #f2f2f2; */
 }
 
-#create-list input[type='submit'] {
+#create-list input[type='submit'], #edit-list input[type='submit'] {
     font-size: 20px;
     padding: 8px 12px;
     background-color: #008000;
@@ -146,14 +145,17 @@ header .nav-link:hover {
     width: 27%;
     margin-right: 10px;
     margin-bottom: 5px;
-    /* height: fit-content; */
+    height: fit-content;
 }
 
-#lists .list-title {
+
+#lists .list-title a {
+    text-decoration: none;
     color: #323131;
+    cursor: default;
 }
 
-#lists .list-body li {
+#lists .list-body li, #list .list-body li {
     margin-left: 20px;
 }
 
@@ -166,3 +168,31 @@ header .nav-link:hover {
 }
 
 /* ./lists view */
+
+/* list view */
+
+#list #btns {
+    margin-top: 15px;
+}
+
+#list .btn {
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 10px;
+    color: #fff;
+}
+
+#list #edit {
+    background-color: #008000;
+    border: 1px solid #008000;
+}
+
+#list #delete {
+    background-color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+/* ./list view */
