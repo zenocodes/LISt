@@ -2,7 +2,25 @@
 
     <%- include('partials/nav') %>
 
-    <h1>View a single list</h1>
+    <main class="container" id="list">
+        <div class="list">
+            <h2 class="list-title"><%= list.title %></h2>
+            <div class="list-body">
+                <ul>
+    
+                    <% list.body.split('\n').forEach(item => { %>
+                        <li><%= item %></li>
+                    <% }) %>
+    
+                </ul>
+            </div>
+            <p>Created on <%= list.date_created.toString().split(' GMT')[0] %></p>
+        </div>
+        <div id="btns">
+            <a href="/edit/<%= list.id %>" class="btn" id="edit">Edit</a>
+            <a href="/delete/<%= list.id %>" class="btn" id="delete">Delete</a>
+        </div>
+    </main>
 
 
 <%- include('partials/footer') %>
