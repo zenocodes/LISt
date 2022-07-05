@@ -33,8 +33,18 @@ app.get('/lists', (req, res) => {
 
 // VIEW A LIST
 app.get('/list/:id', (req, res) => {
-    res.render('list')
+
+    let sql = 'SELECT * FROM list WHERE id = ?'
+
+    connection.query(
+        sql, [parseInt(req.params.id)], (error, results) => {
+            res.render('list', {list: results[0]})
+        }
+    )
+    
 })
+
+
 
 // CREATE A LIST
 app.get('/create', (req, res) => {
@@ -55,9 +65,45 @@ app.post('/create', (req, res) => {
 
 // EDIT A LIST
 app.get('/edit/:id', (req, res) => {
-    res.render('edit-list')
+    let sql = 'SELECT * FROM list WHERE id = ?'
+
+    connection.query(
+        sql, [parseInt(req.params.id)], (error, results) => {
+            res.render('edit-list', {list: results[0]})
+        }
+    )
+    
 })
 
+app.post('/edit/:id', (req, res) => {
+    let sql = 'UPDATE list SET title = ?, body = ?, date_modified = ? WHERE id = ?'
+
+    connection.query(
+        sql,
+        [
+            req.body.title,
+            req.body.body,
+            Date(),
+            parseInt(req.params.id)
+        ],
+        (error, results) => {
+            res.redirect(`/list/${req.params.id}`)
+        }
+    )
+
+})
+
+// DELETE A LIST
+app.get('/delete/:id', (req, res) => {
+    let sql = 'DELETE FROM list WHERE id = ?'
+
+    connection.query(
+        sql, [parseInt(req.params.id)], (error, results) => {
+            res.redirect('/lists')
+        }
+    )
+
+})
 
 // PAGE NOT FOUND
 app.get('*', (req, res) => {
