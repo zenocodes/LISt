@@ -7,7 +7,7 @@
         <% lists.forEach(list => { %>
 
             <div class="list">
-                <h2 class="list-title"><%= list.title %></h2>
+                <h2 class="list-title"><a href="/list/<%= list.id %>"><%= list.title %></a></h2>
                 <div class="list-body">
                     <ul>
 
@@ -17,12 +17,30 @@
 
                     </ul>
                 </div>
-                <p>Created on <%= list.date_created.toString().split(' GMT')[0] %></p>
+
+                <% if(list.date_modified !== 'NULL') { %>
+                    <p>Modified on <%= list.date_modified.split(' GMT')[0] %></p>
+                <% } else { %>
+                    <p>Created on <%= list.date_created.toString().split(' GMT')[0] %></p>
+                <% } %>
+
+                
             </div>
 
         <% }) %>
 
     </main>
 
+    <script>
+
+        let lists = document.querySelectorAll('.list')
+
+        lists.forEach(list => {
+            list.addEventListener('click', () => {
+                location.href = list.firstElementChild.firstElementChild.href
+            })
+        })
+
+    </script>
 
 <%- include('partials/footer') %>
