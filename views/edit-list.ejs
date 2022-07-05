@@ -2,7 +2,18 @@
 
     <%- include('partials/nav') %>
 
-    <h1>Edit a list</h1>
+    <main class="container" id="edit-list">
+        <h1 class="title">Edit list</h1>
+
+        <form action="/edit/<%= list.id %>" method="POST">
+            <label for="">Title</label>
+            <input type="text" name="title" id="" class="form-input" value="<%= list.title %>">
+            <label for="">Body</label>
+            <textarea name="body" id=""  class="form-input" cols="30" rows="10"><%= list.body %></textarea>
+            <input type="submit" value="Update">
+        </form>
+
+    </main>
 
 
 <%- include('partials/footer') %>
